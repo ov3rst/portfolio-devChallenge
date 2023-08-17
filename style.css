@@ -6,9 +6,13 @@
 
   /* colors */
 
+  --white-2: #e0e0e0;
   --body-bg: #f2f2f2;
+  --gray-s: #333;
   --gray: #4f4f4f;
   --light-gray: #828282;
+  --progress-bg: #c4c4c4;
+  --progress-value-bg: #2f80ed;
 
   /* utilities */
   --card-radius: 0.75rem;
@@ -32,23 +36,54 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+img {
+  border-radius: var(--card-radius);
+  max-width: 100%;
+  height: auto;
+}
+
 main {
   margin: 71px 2.125rem 0;
+}
+
+/* utilities */
+
+.skills__title {
+  color: var(--gray);
+  font-size: 1.125rem;
 }
 
 .card {
   background-color: white;
   border-radius: var(--card-radius);
-  max-width: 412px;
   padding: 1.5rem 1.5rem 2rem;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.19);
 }
 
+/* grid */
+
+.grid__container {
+  max-width: 1307px;
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
 /* profile card */
+
+.profile__card {
+  max-width: 412px;
+}
+
 .profile__card img {
-  border-radius: var(--card-radius);
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 358px;
 }
 
 .profile__card .profile__info {
@@ -93,8 +128,285 @@ main {
 }
 
 .profile__desc {
+  color: var(--light-gray);
   font-size: 1.125rem;
   font-weight: var(--medium-weight);
-  color: var(--light-gray);
+  margin-top: 2rem;
   padding-right: 2rem;
+}
+
+/* skills card and desing card */
+
+.skills__card {
+  align-self: start;
+}
+
+.bars {
+  margin-top: 1rem;
+  display: grid;
+  row-gap: 1rem;
+}
+
+.progress__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progress__bar p {
+  color: var(--gray);
+}
+
+.progress__bar progress {
+  width: max(150px, 237px);
+  height: 9px;
+  appearance: none;
+}
+
+.progress__bar progress::-webkit-progress-bar {
+  background-color: var(--progress-bg);
+  border-radius: 1rem;
+}
+
+.progress__bar progress::-webkit-progress-value {
+  background-color: var(--progress-value-bg);
+  border-radius: 1rem;
+}
+
+/* project card */
+
+.project__container {
+  grid-column: 2 / 4;
+}
+
+.project {
+  /* align-self: start; */
+  margin-top: -23rem;
+  padding: 22px;
+}
+
+.project__title {
+  color: var(--gray);
+  font-weight: var(--medium-weight);
+  font-size: 1.125rem;
+}
+
+.project__card {
+  display: flex;
+  column-gap: 2.125rem;
+}
+
+.project__card:nth-of-type(2) {
+  margin-top: 1rem;
+}
+
+.project__card:nth-of-type(3),
+.project__card:nth-of-type(4) {
+  margin-top: 36px;
+}
+
+.project__card img {
+  width: 322px;
+  height: 274px;
+}
+
+.tags {
+  color: var(--gray);
+}
+
+.tags span:not(span:first-child) {
+  margin-left: 0.3rem;
+}
+
+.project__card .project__title {
+  color: var(--gray-s);
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.project__card p {
+  color: var(--light-gray);
+  margin-top: 1.125rem;
+}
+
+.btns {
+  margin-top: 3.5rem;
+}
+
+.project__card .btn {
+  border: thin solid var(--progress-value-bg);
+  border-radius: 0.75rem;
+  display: inline-block;
+  font-size: 1.125rem;
+  padding: 0.75rem 39px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.demo__btn {
+  background-color: var(--progress-value-bg);
+  color: white;
+}
+
+.code__btn {
+  color: var(--progress-value-bg);
+  margin-left: 0.4rem;
+}
+
+.demo__btn:hover {
+  background-color: white;
+  color: var(--progress-value-bg);
+}
+
+.code__btn:hover {
+  background-color: var(--progress-value-bg);
+  color: white;
+}
+
+/* experiences card */
+
+.exp__card {
+  grid-row: 2/3;
+  align-self: start;
+  margin-top: 0.7rem;
+}
+
+.exp__title {
+  font-size: 1.5rem;
+  color: var(--gray);
+  font-weight: var(--medium-weight);
+}
+
+.exp__desc {
+  display: flex;
+  column-gap: 1.5rem;
+
+  margin-top: 2.75rem;
+}
+
+.exp__desc img {
+  width: 74px;
+  height: 54px;
+  margin-top: 1.5rem;
+}
+
+.exp__content span {
+  font-size: 0.875rem;
+  color: var(--light-gray);
+}
+
+.exp__content h4 {
+  font-weight: var(--semibold-weight);
+  margin-top: 0.75rem;
+}
+
+.exp__content p {
+  color: var(--light-gray);
+  margin-top: 2rem;
+}
+
+/* hobbies card */
+
+.hobbies__card {
+  grid-row: 3/5;
+  grid-column: 1/2;
+
+  margin-top: -3rem;
+}
+
+.hobbies__title {
+  font-weight: var(--medium-weight);
+  color: var(--gray);
+}
+
+.hobbies__desc:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.hobbies__desc:nth-of-type(2),
+.hobbies__desc:last-of-type {
+  margin-top: 36px;
+}
+
+.hobbies__desc img {
+  width: 100%;
+  height: 139px;
+  object-fit: cover;
+}
+
+.hobbies__desc h4 {
+  font-weight: var(--semibold-weight);
+  color: var(--gray-s);
+  margin-top: 1.5rem;
+}
+
+.hobbies__desc p {
+  margin-top: 10px;
+  color: var(--light-gray);
+}
+
+/* Blogs card*/
+
+.blog__container {
+  grid-column: 2 / span 2;
+
+  margin-top: 1rem;
+}
+
+.blog__card {
+  padding: 22px;
+}
+
+.blog__card h3 {
+  color: var(--gray);
+  font-weight: var(--medium-weight);
+  font-size: 1.125rem;
+}
+
+.blog__content {
+  display: flex;
+
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.blog__content .blog__desc span {
+  color: var(--white-2);
+}
+
+.blog__content .blog__desc h4 {
+  color: var(--gray-s);
+  font-size: 1.5rem;
+  font-weight: var(--medium-weight);
+  margin-top: 2rem;
+}
+
+.blog__content .blog__desc p {
+  color: var(--light-gray);
+  margin-top: 1.5rem;
+  padding-right: 10rem;
+}
+
+.blog__content .blog__desc a {
+  display: inline-block;
+  margin-top: 1.3rem;
+  color: var(--progress-value-bg);
+}
+
+.blog__content img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+}
+
+/* footer */
+
+footer {
+  color: var(--light-gray);
+  margin-top: 135px;
+  text-align: center;
+}
+
+footer a {
+  color: var(--light-gray);
+  font-weight: var(--semibold-weight);
 }
